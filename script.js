@@ -1,5 +1,7 @@
 let buttons = document.getElementById("buttons").childNodes;
 
+let screen = document.getElementById("big-text");
+
 buttons.forEach(button => button.addEventListener("click", logButton));
 
 function logButton() {
@@ -7,6 +9,6 @@ function logButton() {
 
     if (this.id.split("")[0] == "n") {
         splitArray = this.id.split("");
-        console.log(splitArray[splitArray.length - 1])
+        screen.textContent = splitArray[splitArray.length - 1];
     }
 }
