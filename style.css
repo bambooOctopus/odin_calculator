@@ -101,6 +101,10 @@ body {
 }
 
 .num {
-    background-color: lightblue;
+    background-color: lightgray;
+}
+
+.outside {
+    background-color: lightskyblue;
 }
 
