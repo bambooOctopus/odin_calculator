@@ -27,16 +27,39 @@ body {
     border-radius: 6px;
     margin-bottom: 2rem;
     margin-top: 1rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.top-text {
+    display: flex;
+    justify-content: right;
+    text-align: right;
+    font-size: 1.2rem;
+}
+
+.small-text {
+    text-align: right;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    color: lightgreen;
+}
+
+.operand {
+    color: goldenrod;
+    font-size: 1.2rem;
+    margin-right: 2rem;
 }
 
 .big-text {
-    margin-top: 6rem;
+    
     text-align: right;
     margin-right: 1rem;
     
     font-size: 2rem;
 
-    color: lightgreen;
+    color: lightblue;
 }
 
 .buttons {
