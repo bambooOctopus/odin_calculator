@@ -16,4 +16,30 @@ body {
     width: 25%;
     height: 80vh;
     background-color: rgba(0,0,0,.3);
+
+    padding: 1rem 2rem;
+
+    display: flex;
+    flex-direction: column;
+
 }
+
+.screen {
+    width: 100%;
+    height: 150px;
+    background-color: rgb(0, 0, 0, .7);
+    color: rgb(7, 189, 7);
+    border-radius: 6px;
+    margin-bottom: 2rem;
+}
+
+.big-text {
+    margin-left: 20rem;
+    margin-top: 6.5rem;
+    font-size: 2rem;
+}
+
+.buttons {
+
+}
+
