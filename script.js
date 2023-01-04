@@ -1,7 +1,11 @@
 let buttons = document.getElementById("buttons").childNodes;
-
 let screen = document.getElementById("big-text");
 
+//running total in small text
+const storedTotal = [];
+//operator that's been entered
+const storedOperator = [];
+//numbers being punched in before equals
 const numArray = [];
 
 buttons.forEach(button => button.addEventListener("click", logButton));
@@ -9,9 +13,8 @@ buttons.forEach(button => button.addEventListener("click", logButton));
 function logButton() {
     console.log(this.id);
 
-    if (this.id.split("")[0] == "n") {
-        splitArray = this.id.split("");
-        let num = screen.textContent = splitArray[splitArray.length - 1];
+    if (this.id[0] == "n") {
+        let num = this.id[this.id.length - 1];        
         numArray.push(num);
         screen.textContent = numArray.join("");
         
