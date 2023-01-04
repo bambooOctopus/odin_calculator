@@ -16,8 +16,7 @@ function logButton() {
     if (this.id[0] == "n") {
         let num = this.id[this.id.length - 1];        
         numArray.push(num);
-        screen.textContent = numArray.join("");
-        
+        screen.textContent = numArray.join("");        
     }
     else if (this.id == "clear") {
         let length = numArray.length;
