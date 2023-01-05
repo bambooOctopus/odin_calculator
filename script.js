@@ -1,32 +1,96 @@
 let buttons = document.getElementById("buttons").childNodes;
-let screen = document.getElementById("big-text");
+let bigText = document.getElementById("big-text");
+let smallText = document.getElementById("small-text");
+let operand = document.getElementById("operand");
 
 //running total in small text
 const storedTotal = [];
 //operator that's been entered
-const storedOperator = [];
-//numbers being punched in before equals
+const storedOperator = null;
+//big line numbers
 const numArray = [];
 
 buttons.forEach(button => button.addEventListener("click", logButton));
 
 function logButton() {
-    console.log(this.id);
+    id = this.id;    
 
-    if (this.id[0] == "n") {
-        let num = this.id[this.id.length - 1];        
+    if (id[0] == "n") {
+        let num = id[id.length - 1];        
         numArray.push(num);
-        screen.textContent = numArray.join("");        
+        bigText.textContent = numArray.join("");        
     }
     else if (this.id == "clear") {
-        let length = numArray.length;
-        console.log(length);
+        let length = numArray.length;  
+        console.log(this.classList[0]);
         
         for (let i = 0; i < length; i ++) {
             numArray.pop();
-            screen.textContent = numArray;
+            bigText.textContent = numArray;
         }
 
         
     }
+    else if (this.classList[1] == "operator") {
+        
+
+        if (numArray.length == 0) {
+            console.log("empty");
+
+        }
+        else {
+            //so if theres something in numArray we want to 
+            //1. save the operator id to storedOperator
+            //2. move the number from the bigText to smallText
+            //3. move operator to smallText
+            //4. empty numArray
+
+            let operatorFunction = this.id;
+            let storedOperator = operatorFunction;
+
+            let firstNumber = numArray.join("");
+            storedTotal.push(firstNumber);
+
+            let length = numArray.length;
+
+            for (i = 0; i < length; i++) {
+                numArray.pop();
+            }
+
+            smallText.textContent = storedTotal[0];
+            bigText.textContent = "";
+
+            switch(storedOperator) {
+                case 'division': 
+                    operand.textContent = "/";
+                    break
+                case 'multiply': 
+                    operand.textContent = "*";
+                    break
+                
+                case 'minus': 
+                    operand.textContent = "-";
+                    break
+                
+                case 'plus': 
+                    operand.textContent = "+";
+                    break
+                
+                
+            
+            }
+
+            
+
+        }
+    }
+
+    else if (this.classList[1] == "equals") {
+        console.log("equals");
+
+    }
+    else if (this.classList[1] == "decimal") {
+        console.log("decimal");
+    }
+    
 }

@@ -7,6 +7,7 @@ body {
    
     width: 99%;
     background: linear-gradient(lightblue, pink);
+    /* background: linear-gradient(black, orange); */
     height: 98vh;
        
     display: flex;
@@ -17,7 +18,7 @@ body {
     margin-top: 4rem;
     border-radius: 6px;
     width: 25%;
-    height: 80vh;
+    height: 83vh;
     background-color: rgba(0,0,0,.2);
 
     padding: 1rem 2rem;
