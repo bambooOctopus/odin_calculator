@@ -11,6 +11,7 @@ const storedOperator = null;
 const numArray = [];
 
 buttons.forEach(button => button.addEventListener("click", logButton));
+console.log(this.id);
 
 function logButton() {
     id = this.id;    
@@ -42,6 +43,7 @@ function logButton() {
             //set storedOperator to null
             let storedOperator = null;            
             operand.textContent = ""; 
+            
 
         }
         else if (storedTotal.length > 0 && operand.textContent == "") {
@@ -62,8 +64,30 @@ function logButton() {
     else if (this.classList[1] == "operator") {
         
 
-        if (numArray.length == 0) {
-            console.log("empty");
+        if (numArray.length == 0 && storedTotal.length > 0) {
+            let operatorFunction = this.id;
+            let storedOperator = operatorFunction;
+
+            switch(storedOperator) {
+                case 'division': 
+                    operand.textContent = "/";
+                    break
+                case 'multiply': 
+                    operand.textContent = "*";
+                    break
+                
+                case 'minus': 
+                    operand.textContent = "-";
+                    break
+                
+                case 'plus': 
+                    operand.textContent = "+";
+                    break
+                
+                
+            
+            }
+
 
         }
         else {
