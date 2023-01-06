@@ -23,11 +23,39 @@ function logButton() {
     else if (this.id == "clear") {
         let length = numArray.length;  
         console.log(this.classList[0]);
-        
-        for (let i = 0; i < length; i ++) {
-            numArray.pop();
-            bigText.textContent = numArray;
+
+        if (storedTotal.length > 0 && numArray.length > 0) {
+            for (let i = 0; i < length; i ++) {
+                numArray.pop();
+                bigText.textContent = numArray;
+            }
+
         }
+        else if (numArray.length > 0) {
+            for (let i = 0; i < length; i ++) {
+                numArray.pop();
+                bigText.textContent = numArray;
+            }
+
+        }
+        else if (storedTotal.length > 0 && operand.textContent != "") {
+            //set storedOperator to null
+            let storedOperator = null;            
+            operand.textContent = ""; 
+
+        }
+        else if (storedTotal.length > 0 && operand.textContent == "") {
+            let length = storedTotal.length;
+
+            for (let i = 0; i < length; i++) {
+                storedTotal.pop();
+                smallText.textContent = "";
+            }
+           
+            
+        }
+        
+        
 
         
     }
