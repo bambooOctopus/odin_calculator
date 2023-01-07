@@ -16,7 +16,7 @@ function calcObj() {
                         console.log("this is plus");
                         
                         let plusAnswer = this.plus();
-                        this.storedNumber = plusAnswer;
+                        this.storedNumber = plusAnswer.toString();
                         smallText.textContent = this.storedNumber;
                         this.activeNumber = "";
                         bigText.textContent = "";
@@ -28,7 +28,7 @@ function calcObj() {
                         console.log("this is minus");
                         
                         let minusAnswer = this.minus();
-                        this.storedNumber = minusAnswer;
+                        this.storedNumber = minusAnswer.toString();
                         smallText.textContent = this.storedNumber;
                         this.activeNumber = "";
                         bigText.textContent = "";
@@ -39,7 +39,7 @@ function calcObj() {
                         console.log("this is multiply");
                         
                         let multiplyAnswer = this.multiply();
-                        this.storedNumber = multiplyAnswer;
+                        this.storedNumber = multiplyAnswer.toString();
                         smallText.textContent = this.storedNumber;
                         this.activeNumber = "";
                         bigText.textContent = "";
@@ -50,7 +50,7 @@ function calcObj() {
                         console.log("this is divide");
                         
                         let divideAnswer = this.divide();
-                        this.storedNumber = divideAnswer;
+                        this.storedNumber = divideAnswer.toString();
                         smallText.textContent = this.storedNumber;
                         this.activeNumber = "";
                         bigText.textContent = "";
@@ -59,28 +59,30 @@ function calcObj() {
                     break;
 
                 };
+
+                
                 
             },
             
             plus: function() {
-                return parseInt(this.storedNumber) + parseInt(this.activeNumber);
+                return (parseInt(this.storedNumber) + parseInt(this.activeNumber)).toString();
             },
 
             minus: function() {
-                return parseInt(this.storedNumber) - parseInt(this.activeNumber);
+                return (parseInt(this.storedNumber) - parseInt(this.activeNumber)).toString();
             },
 
             multiply: function() {
-                return parseInt(this.storedNumber) * parseInt(this.activeNumber);
+                return (parseInt(this.storedNumber) * parseInt(this.activeNumber)).toString();
             },
 
             divide: function() {
-                return parseInt(this.storedNumber) / parseInt(this.activeNumber);
+                return (parseInt(this.storedNumber) / parseInt(this.activeNumber)).toString();
             }
 
 
-    }
-}
+    };
+};
 
 let operatorHash = { 
     "multiply": "*",
@@ -97,12 +99,25 @@ console.log(calc);
 
 
 function logButton() {
-    id = this.id;    
+
+    smallText.textContent = calc.storedNumber;
+    operand.textContent = operatorHash[calc.storedOperator];
+    bigText.textContent = calc.activeNumber;
+
+    console.log("I wish");
+    id = this.id;
+    console.log(id);    
 
     if (id[0] == "n") {
-        let numberId = id[id.length - 1];  
-        calc.activeNumber = calc.activeNumber + numberId;              
-        bigText.textContent = calc.activeNumber;  
+        console.log("number row");
+        let numberId = id[id.length - 1]; 
+        console.log(numberId); 
+        calc.activeNumber = calc.activeNumber + numberId; 
+        console.log(calc.activeNumber.toString()); 
+        
+        
+        bigText.textContent = "";            
+        bigText.textContent = calc.activeNumber.toString(); 
     }
     else if (this.id == "clear") { 
         
@@ -127,8 +142,12 @@ function logButton() {
     else if (this.classList[1] == "operator" ) {
         if (calc.storedNumber.length > 0 && calc.storedOperator.length > 0 && calc.activeNumber.length > 0) {
             calc.compute();
+            console.log("hello");
             calc.storedOperator = this.id;
+
             operand.textContent = operatorHash[this.id];
+            smallText.textContent = calc.storedNumber;
+            bigText.textContent = calc.activeNumber;
             
         }
         else if (calc.storedNumber.length == 0 && calc.storedOperator.length == 0 && calc.activeNumber.length > 0) {
@@ -136,23 +155,47 @@ function logButton() {
             calc.storedNumber = calc.activeNumber;
             calc.activeNumber = "";
             calc.storedOperator = this.id;
-            bigText.textContent = "";
+            bigText.textContent = calc.activeNumber;
             smallText.textContent = calc.storedNumber;
             operand.textContent = operatorHash[calc.storedOperator];
+
+            
             
         }
+        else if (calc.storedNumber.length > 0 && calc.storedOperator.length == 0 && calc.activeNumber.length == 0) {
+            calc.storedOperator = this.id;            
+            operand.textContent = operatorHash[calc.storedOperator];
+
+            bigText.textContent = calc.activeNumber;
+            smallText.textContent = calc.storedNumber;
+            operand.textContent = operatorHash[calc.storedOperator];
+
+            
+        }
+        else if (calc.storedNumber.length > 0 && calc.storedOperator.length > 0 && calc.activeNumber.length == 0) {
+            bigText.textContent = calc.activeNumber;
+            smallText.textContent = calc.storedNumber;
+            operand.textContent = operatorHash[calc.storedOperator];
+            console.log("Wish you were here");
+            return;
+        }
+        
         
         
     }
 
-    else if (this.classList[1] == "equals") {
+    else if (this.id == "equals") {
         calc.compute();
         calc.storedOperator = "";
         operand.textContent = "";
+
+        calc.activeNumber = "";
         
-        smallText = "";
-        bigText = calc.storedNumber;
-        calc.storedNumber = "";
+        smallText.textContent = calc.storedNumber;
+        bigText.textContent = "";
+        
+
+        
     }
 
 }
