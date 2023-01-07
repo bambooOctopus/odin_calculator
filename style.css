@@ -104,39 +104,40 @@ body {
 
 .clear {
     grid-column: 1 / 3;
-    background-color: rgba(252, 250, 250, 0.2);    
+    background-color: rgba(144, 238, 144, 0.3);    
     border: solid 2px lightgreen;
 }
 
 .clear:hover {
-    background-color: lightgreen;
+    background-color: rgba(144, 238, 144, 0.6);
 }
 
 .equals {
     grid-column: 3 / 5;
-    background-color: rgba(252, 250, 250, 0.2);    
+    background-color: rgba(144, 238, 144, 0.3);    
     border: solid 2px lightgreen;
 
 }
 
 .equals:hover {
-    background-color: lightgreen;
+    background-color: rgba(144, 238, 144, 0.6);
 }
 
 
 
 .operator {
-    background-color: rgba(252, 250, 250, 0.2);    
+    background-color: rgba(218, 165, 32, 0.2);    
     border: solid 2px goldenrod;
 }
 
 .operator:hover {
     background-color: goldenrod;
+    background-color: rgba(194, 150, 39, 0.7);
 }
 
 .num {
     background-color: rgba(252, 250, 250, 0.2);
-    border: solid 2px rgb(71, 70, 70);
+    border: solid 2px rgba(71, 70, 70, .3);
 }
 
 .num:hover {
@@ -145,12 +146,13 @@ body {
 
 .outside {
     /* background-color: lightskyblue; */
-    background-color: rgba(252, 250, 250, 0.2);
+    background-color: rgba(135,206, 250, 0.2);
     border: solid 2px lightskyblue;
     background-color: none;
 }
 
 .outside:hover {
     background-color: lightskyblue;
+    background-color: rgba(135,206, 250, 0.7);
 }
 
