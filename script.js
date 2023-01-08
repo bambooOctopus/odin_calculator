@@ -212,6 +212,18 @@ function logButton() {
         }
     }
 
+    else if (this.id == "plus-minus") {
+        if (calc.activeNumber[0] == "-") {
+            calc.activeNumber.slice(0);
+
+        }
+        else {
+            calc.activeNumber = "-" + calc.activeNumber;
+            bigText.textContent = calc.activeNumber
+
+        }
+    }
+
 }
 
 

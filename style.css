@@ -156,6 +156,17 @@ body {
     background-color: rgba(194, 150, 39, 0.7);
 }
 
+.plus-minus {
+    background-color: rgba(218, 165, 32, 0.2);    
+    border: solid 2px goldenrod;
+}
+
+.plus-minus:hover {
+    background-color: goldenrod;
+    background-color: rgba(194, 150, 39, 0.7);
+}
+
+
 .num {
     background-color: rgba(252, 250, 250, 0.2);
     border: solid 2px rgba(71, 70, 70, .3);
