@@ -27,8 +27,8 @@ function calcObj() {
                     case "minus":
                         console.log("this is minus");
                         
-                        let minusAnswer = this.minus();
-                        this.storedNumber = minusAnswer.toString();
+                        let minusAnswer = this.minus();                        
+                        this.storedNumber = minusAnswer;
                         smallText.textContent = this.storedNumber;
                         this.activeNumber = "";
                         bigText.textContent = "";
@@ -65,19 +65,19 @@ function calcObj() {
             },
             
             plus: function() {
-                return (parseInt(this.storedNumber) + parseInt(this.activeNumber)).toString();
+                return (parseFloat(this.storedNumber) + parseFloat(this.activeNumber)).toString();
             },
 
             minus: function() {
-                return (parseInt(this.storedNumber) - parseInt(this.activeNumber)).toString();
+                return (parseFloat(this.storedNumber) - parseFloat(this.activeNumber)).toString();
             },
 
             multiply: function() {
-                return (parseInt(this.storedNumber) * parseInt(this.activeNumber)).toString();
+                return (parseFloat(this.storedNumber) * parseFloat(this.activeNumber)).toString();
             },
 
             divide: function() {
-                return (parseInt(this.storedNumber) / parseInt(this.activeNumber)).toString();
+                return (parseFloat(this.storedNumber) / parseFloat(this.activeNumber)).toString();
             }
 
 
@@ -198,7 +198,22 @@ function logButton() {
         
     }
 
+    else if (this.id == "decimal") {
+        splitArray = calc.activeNumber.split("");        
+        console.log(splitArray);
+
+        if (splitArray.includes(".")) {
+            console.log("next"); 
+        }
+        else {
+            console.log("else");
+            calc.activeNumber = calc.activeNumber + ".";
+            bigText.textContent = calc.activeNumber;
+        }
+    }
+
 }
+
 
 
 
